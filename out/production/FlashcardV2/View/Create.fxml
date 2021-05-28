@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" styleClass="background" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+    <children>
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="271.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Flashcards">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font></Text>
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchSceneMain" prefHeight="43.0" prefWidth="114.0" styleClass="homeBtn" text="Home" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
+      <Button layoutX="293.0" layoutY="618.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="mainStyleBtns" text="Create" />
+      <TextField layoutX="3.0" layoutY="204.0" prefHeight="403.0" prefWidth="794.0" />
+      <TextField layoutX="3.0" layoutY="132.0" prefHeight="26.0" prefWidth="794.0" />
+      <Text fill="WHITE" layoutX="291.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Flashcard">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="285.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Content of the flashcard">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

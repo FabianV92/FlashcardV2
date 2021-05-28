@@ -1,0 +1,106 @@
+/*------------------MAIN-----------------*/
+.root {
+
+}
+.label {
+    -fx-alignment: center;
+}
+.background {
+    -fx-background-color: "#1c75bc";
+}
+.fileList {
+    -fx-border-style: red;
+}
+.header {
+    -fx-background-color:
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+}
+.mainStyleBtns {
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+.mainStyleBtns:hover {
+    -fx-cursor: hand;
+}
+.mainStyleBtnsTxt {
+    -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
+}
+/*------------------ChooseFOlder-----------------*/
+.helpBtn {
+    -fx-background-color: transparent;
+}
+.helpBtn:pressed {
+    -fx-background-color: transparent;
+}
+/*------------------EditFlashCards-----------------*/
+.listBackground {
+    -fx-background-color: white;
+}
+.listTxt {
+    -fx-background-color: white;
+}
+.homeBtn {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+.refreshBtn {
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+}
+.redBtn:hover,
+.refreshBtn:hover,
+.homeBtn:hover,
+.helpBtn{
+    -fx-cursor: hand;
+}
+/*------------------FlashCards-----------------*/
+    .headerFc {
+    -fx-border-width: 0px, 0px, 5px, 0px;
+    -fx-background-color: white;
+}
+.greenBtn {
+    -fx-background-color:
+            linear-gradient(#f0ff35, #a9ff00),
+            radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+}
+.answerBtn {
+    -fx-background-color:
+            linear-gradient(#d7d9ce, #bdc6ca),
+            radial-gradient(center 50% -40%, radius 200%, #e6eaff 45%, #f6ffed 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+}
+.redBtn {
+    -fx-background-color:
+            linear-gradient(#f8a092, #f55f5f),
+            radial-gradient(center 50% -40%, radius 200%, #ff5858 45%, #ff0000 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+}
+.redBtn:hover,
+.greenBtn:hover,
+.answerBtn:hover {
+    -fx-cursor: hand;
+}
