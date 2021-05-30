@@ -8,9 +8,7 @@
 .background {
     -fx-background-color: "#1c75bc";
 }
-.fileList {
-    -fx-border-style: red;
-}
+
 .header {
     -fx-background-color:
             linear-gradient(#7ebcea, #2f4b8f),
@@ -29,7 +27,14 @@
     -fx-padding: 12 30 12 30;
     -fx-text-fill: white;
     -fx-font-size: 18px;
+    -fx-control-inner-background:
+    linear-gradient(#395cab, #223768);
 }
+.choice-box .label{
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+.mainStyleBtns .label:hover,
 .mainStyleBtns:hover {
     -fx-cursor: hand;
 }

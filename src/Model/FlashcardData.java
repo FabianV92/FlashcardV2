@@ -6,6 +6,7 @@ public class FlashcardData {
     public String flashcardName;
     public String flashcardContent;
     public static Integer id = 0;
+    public static String currentFolder = null;
 
     public FlashcardData(String flashcardName, String flashcardContent) {
         id++;
