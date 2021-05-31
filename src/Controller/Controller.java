@@ -14,7 +14,8 @@ public class Controller implements IdataContainer, Initializable {
 
     // Fields
     public FlashcardData flashcardData;
-    public ArrayList<Object> container = new ArrayList<>();
+    public static ArrayList<Object> container = new ArrayList<>();
+    public int currentFlashcard = 0;
     public List<FlashcardData> list = new ArrayList<FlashcardData>();
 
     @FXML
@@ -23,7 +24,14 @@ public class Controller implements IdataContainer, Initializable {
     private TextArea flashContent;
     @FXML
     private TextField flashName;
-
+    @FXML
+    Label queryFlashNamee;
+    @FXML
+    TextArea queryFlashContent;
+    @FXML
+    Label queryTotalQuestions;
+    @FXML
+    Label queryCorrScore;
 
     // Displaying Folders
     public String[] displayFolders() {
@@ -66,7 +74,6 @@ public class Controller implements IdataContainer, Initializable {
 
     // Saves the container array into the data.dat of the chosen folder
     private void saveToFile() {
-        String[] strArr;
         File f = new File("-" + FlashcardData.currentFolder + "/data.dat");
         try {
             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f));
@@ -87,7 +94,7 @@ public class Controller implements IdataContainer, Initializable {
         try {
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(f));
             ObjectInputStream ois = new ObjectInputStream(bis);
-            container = (ArrayList<Object>)  ois.readObject();
+            this.container = (ArrayList<Object>) ois.readObject();
             bis.close();
             ois.close();
             container.forEach(System.out::println);
@@ -121,6 +128,47 @@ public class Controller implements IdataContainer, Initializable {
         ControlScenes c = new ControlScenes();
         c.switchSuccCreatePage(e);
     }
+
+    @FXML
+    public void randomFlashcard() {
+        ArrayList<String> getFlashcard = new ArrayList<>();
+        System.out.println(container.size());
+        displayTotalQuestions();
+        displayFlashcardName();
+    }
+
+    public void displayTotalQuestions() {
+        queryTotalQuestions.setText("Total Questions " + container.size());
+    }
+
+    /* Checking condition for start method. Method can only call randomFlashcard method once if
+    the user decide to start query of the flashcards(Pressed start method) */
+    @FXML
+    public void startMethod() {
+        if (queryTotalQuestions.getText().equals("Total Questions 0")) {
+            randomFlashcard(); // display Total questions
+
+        }
+    }
+
+    public void displayFlashcardName() {
+        ArrayList<String> al = new ArrayList<>();
+        String tmp;
+        if (currentFlashcard != container.size()) {
+            tmp = (String) container.get(currentFlashcard);
+            System.out.println(tmp);
+            queryFlashContent.setText(container.get(0).toString());
+            currentFlashcard++;
+        }
+    }
+
+
+    public void displayCorrectAnswer() {
+    }
+
+    public void displayWrongAnswer() {
+    }
+
 
     @Override
     public boolean deleteFlashcard(Integer id) {
