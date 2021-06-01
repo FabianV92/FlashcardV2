@@ -13,19 +13,15 @@ import java.util.*;
 public class Controller implements IdataContainer, Initializable {
 
     // Fields
-    public FlashcardData flashcardData;
     public static ArrayList<Object> container = new ArrayList<>();
     public int currentFlashcard = 0;
-    public List<FlashcardData> list = new ArrayList<FlashcardData>();
-
+    public int storedScore = 0;
     @FXML
-    private ChoiceBox<String> choiceBox;
+    ChoiceBox<String> choiceBox;
     @FXML
     private TextArea flashContent;
     @FXML
     private TextField flashName;
-    @FXML
-    Label queryFlashNamee;
     @FXML
     TextArea queryFlashContent;
     @FXML
@@ -133,7 +129,6 @@ public class Controller implements IdataContainer, Initializable {
 
     @FXML
     public void randomFlashcard() {
-        ArrayList<String> getFlashcard = new ArrayList<>();
         displayTotalQuestions();
         displayFlashcardName();
     }
@@ -148,7 +143,15 @@ public class Controller implements IdataContainer, Initializable {
     public void startMethod() {
         if (queryTotalQuestions.getText().equals("Total Questions 0")) {
             randomFlashcard(); // display Total questions
-
+        }
+        // Setting restart condition and resetting all values and call the randomFlashcard method
+        if (currentFlashcard == container.size()) {
+            currentFlashcard = 0;
+            storedScore = 0;
+            queryTotalQuestions.setText("Total Questions 0");
+            queryWroScore.setText("Wrong answer 0");
+            queryCorrScore.setText("Correct answer 0");
+            randomFlashcard();
         }
     }
 
@@ -175,30 +178,50 @@ public class Controller implements IdataContainer, Initializable {
     }
 
     public void displayCorrectAnswer() {
-        queryFlashContent.setText(soutFlashName() +
-                "\n" + soutFlashContent());
+        if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
+            queryFlashContent.setText(soutFlashName() +
+                    "\n" + soutFlashContent());
+        }
     }
 
     public void dontKnowAnswer() {
-        int i = 0;
-        String getScore = queryWroScore.getText();
-        i = Integer.parseInt(getScore.replaceAll("\\D", ""));
-        if (i < container.size() && (!queryTotalQuestions.getText().equals("Total Questions 0"))) {
-            i++;
-            queryWroScore.setText("Wrong answer " + i);
-        }
-        if (i == container.size()) {
-            queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
-                    "main menu.");
-        }
-        else {
-            currentFlashcard++;
-            displayFlashcardName();
+
+        if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
+            if (storedScore < container.size()) {
+                currentFlashcard++;
+                displayFlashcardName();
+
+                String currentScore = queryWroScore.getText().replaceAll("\\D","");
+                int intCurStore = Integer.parseInt(currentScore);
+                intCurStore ++;
+                queryWroScore.setText("Wrong answer " + (intCurStore));
+                storedScore++;
+            }
+            if (storedScore == container.size()) {
+                queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
+                        "main menu.");
+            }
         }
     }
 
     public void knowAnswer() {
 
+        if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
+            if (storedScore < container.size()) {
+                currentFlashcard++;
+                displayFlashcardName();
+
+                String currentScore = queryCorrScore.getText().replaceAll("\\D","");
+                int intCurStore = Integer.parseInt(currentScore);
+                intCurStore++;
+                queryCorrScore.setText("Correct answer " + (intCurStore));
+                storedScore++;
+            }
+            if (storedScore == container.size()) {
+                queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
+                        "main menu.");
+            }
+        }
     }
 
 

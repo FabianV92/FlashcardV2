@@ -1,33 +1,38 @@
 package Controller;
 
+import Model.FlashcardData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
-
-        import java.io.IOException;
+import java.io.IOException;
 
 public class ControlScenes extends Controller {
 
- Stage stage;
- Scene scene;
- Parent root;
+    Stage stage;
+    Scene scene;
+    Parent root;
 
+    @FXML
+    ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
     // ------Scene controls------
+
     public void switchSceneMain(ActionEvent e) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/View/Main.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.show();
+            stage.show();// Need to fix
+            choiceBox.show();// Need to fix
+            choiceBox.setValue(FlashcardData.currentFolder);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

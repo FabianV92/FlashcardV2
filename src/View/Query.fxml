@@ -27,7 +27,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="535.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#randomFlashcard" prefHeight="50.0" prefWidth="250.0" styleClass="greenBtn" text="I know the answer" textFill="#191e1e">
+      <Button layoutX="535.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#knowAnswer" prefHeight="50.0" prefWidth="250.0" styleClass="greenBtn" text="I know the answer" textFill="#191e1e">
          <font>
             <Font size="18.0" />
          </font>
