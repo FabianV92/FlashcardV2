@@ -19,7 +19,10 @@
          </font></Button>
         <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
       <Button fx:id="flashCreate" layoutX="293.0" layoutY="618.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addFlashcard" prefHeight="50.0" prefWidth="150.0" styleClass="mainStyleBtns" text="Create" />
-      <TextField fx:id="flashName" layoutX="3.0" layoutY="132.0" prefHeight="26.0" prefWidth="794.0" />
+      <TextField fx:id="flashName" layoutX="3.0" layoutY="118.0" prefHeight="26.0" prefWidth="794.0">
+         <font>
+            <Font size="24.0" />
+         </font></TextField>
       <Text fill="WHITE" layoutX="291.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Flashcard">
          <font>
             <Font size="14.0" />
@@ -30,6 +33,9 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TextArea fx:id="flashContent" layoutX="-2.0" layoutY="195.0" prefHeight="414.0" prefWidth="800.0" />
+      <TextArea fx:id="flashContent" layoutX="3.0" layoutY="193.0" prefHeight="414.0" prefWidth="794.0">
+         <font>
+            <Font size="24.0" />
+         </font></TextArea>
     </children>
 </AnchorPane>

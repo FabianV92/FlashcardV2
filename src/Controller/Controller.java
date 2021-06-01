@@ -32,6 +32,8 @@ public class Controller implements IdataContainer, Initializable {
     Label queryTotalQuestions;
     @FXML
     Label queryCorrScore;
+    @FXML
+    Label queryWroScore;
 
     // Displaying Folders
     public String[] displayFolders() {
@@ -99,9 +101,9 @@ public class Controller implements IdataContainer, Initializable {
             ois.close();
             container.forEach(System.out::println);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Not found the file");
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("empty folder :)");
         }
     }
 
@@ -113,7 +115,7 @@ public class Controller implements IdataContainer, Initializable {
         String flashcardName = flashName.getText();
         String flashcardContent = flashContent.getText();
         ArrayList<String> l = new ArrayList<>();
-        l.add(flashcardName);
+        l.add(flashcardName + "_");
         l.add(flashcardContent);
 
         // Adding the arraylist to the container
@@ -132,7 +134,6 @@ public class Controller implements IdataContainer, Initializable {
     @FXML
     public void randomFlashcard() {
         ArrayList<String> getFlashcard = new ArrayList<>();
-        System.out.println(container.size());
         displayTotalQuestions();
         displayFlashcardName();
     }
@@ -152,21 +153,52 @@ public class Controller implements IdataContainer, Initializable {
     }
 
     public void displayFlashcardName() {
-        ArrayList<String> al = new ArrayList<>();
-        String tmp;
         if (currentFlashcard != container.size()) {
-            tmp = (String) container.get(currentFlashcard);
-            System.out.println(tmp);
-            queryFlashContent.setText(container.get(0).toString());
-            currentFlashcard++;
+            queryFlashContent.setText(soutFlashName());
         }
     }
 
+    public String soutFlashName() {
+        String[] strArr = new String[2];
+        String str;
 
-    public void displayCorrectAnswer() {
+        str = container.get(currentFlashcard).toString().replaceAll("\\[|\\]", "").trim();
+        strArr = str.split("_");
+        return strArr[0];
     }
 
-    public void displayWrongAnswer() {
+    public String soutFlashContent() {
+        String flashCOntentTxt = "\n";
+        return flashCOntentTxt + container.get(currentFlashcard).toString()
+                .replaceAll("(^.)", "")
+                .replaceAll("(.*?_)", "").replaceAll("^.|(.$)", "").trim();
+    }
+
+    public void displayCorrectAnswer() {
+        queryFlashContent.setText(soutFlashName() +
+                "\n" + soutFlashContent());
+    }
+
+    public void dontKnowAnswer() {
+        int i = 0;
+        String getScore = queryWroScore.getText();
+        i = Integer.parseInt(getScore.replaceAll("\\D", ""));
+        if (i < container.size() && (!queryTotalQuestions.getText().equals("Total Questions 0"))) {
+            i++;
+            queryWroScore.setText("Wrong answer " + i);
+        }
+        if (i == container.size()) {
+            queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
+                    "main menu.");
+        }
+        else {
+            currentFlashcard++;
+            displayFlashcardName();
+        }
+    }
+
+    public void knowAnswer() {
+
     }
 
 

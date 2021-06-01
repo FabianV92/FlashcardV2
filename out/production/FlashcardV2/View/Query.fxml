@@ -17,12 +17,12 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-        <Button layoutX="14.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" styleClass="redBtn" text="I dont know the answer" textFill="#191e1e">
+        <Button layoutX="14.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#dontKnowAnswer" prefHeight="50.0" prefWidth="250.0" styleClass="redBtn" text="I dont know the answer" textFill="#191e1e">
          <font>
             <Font size="18.0" />
          </font></Button>
         <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
-      <Button layoutX="274.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" styleClass="answerBtn" text="Show me the answer" textFill="#191e1e">
+      <Button layoutX="274.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#displayCorrectAnswer" prefHeight="50.0" prefWidth="250.0" styleClass="answerBtn" text="Show me the answer" textFill="#191e1e">
          <font>
             <Font size="18.0" />
          </font>
@@ -32,7 +32,10 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="queryFlashContent" layoutX="2.0" layoutY="144.0" prefHeight="502.0" prefWidth="794.0" />
+      <TextArea fx:id="queryFlashContent" layoutX="2.0" layoutY="144.0" prefHeight="502.0" prefWidth="794.0">
+         <font>
+            <Font size="24.0" />
+         </font></TextArea>
       <Button fx:id="startBtn" layoutX="315.0" layoutY="96.0" mnemonicParsing="false" onAction="#startMethod" prefHeight="26.0" prefWidth="168.0" styleClass="startBtn" text="Press me to start ! !" textFill="#191e1e">
          <font>
             <Font name="System Bold" size="12.0" />
