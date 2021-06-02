@@ -1,26 +1,19 @@
 package Controller;
 
-import Model.FlashcardData;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class ControlScenes extends Controller {
+public class ControlScenes extends QueryController {
 
     Stage stage;
     Scene scene;
     Parent root;
 
-    @FXML
-    ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
     // ------Scene controls------
 
@@ -30,9 +23,9 @@ public class ControlScenes extends Controller {
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.show();// Need to fix
-            choiceBox.show();// Need to fix
-            choiceBox.setValue(FlashcardData.currentFolder);
+            //stage.show();// Need to fix ( Display the folder name in the main page)----------------------------------
+            //choiceBox.show();// Need to fix
+            //choiceBox.setValue(FlashcardData.currentFolder);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -40,7 +33,7 @@ public class ControlScenes extends Controller {
 
     public void switchCreate(ActionEvent e) {
         try {
-            Controller s = new Controller();
+            MainController s = new MainController();
             root = FXMLLoader.load(getClass().getResource("/View/Create.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -59,7 +52,7 @@ public class ControlScenes extends Controller {
 
     public void switchEdit(ActionEvent e) {
         try {
-            Controller s = new Controller();
+            MainController s = new MainController();
             root = FXMLLoader.load(getClass().getResource("/View/Edit.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -110,5 +103,4 @@ public class ControlScenes extends Controller {
             ioException.printStackTrace();
         }
     }
-
 }
