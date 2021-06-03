@@ -1,14 +1,16 @@
 package Controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class ControlScenes extends QueryController {
+public class ControlScenes extends MainController {
 
     Stage stage;
     Scene scene;
@@ -16,7 +18,6 @@ public class ControlScenes extends QueryController {
 
 
     // ------Scene controls------
-
     public void switchSceneMain(ActionEvent e) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/View/Main.fxml"));

@@ -1,10 +1,12 @@
 package Controller;
 
+import Model.FlashcardData;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class QueryController extends MainController {
+public class QueryController extends DisplayFlashcards {
 
     // Fields
     public int currentFlashcard = 0;
@@ -25,7 +27,7 @@ public class QueryController extends MainController {
     }
 
     public void displayTotalQuestions() {
-        queryTotalQuestions.setText("Total Questions " + container.size());
+        queryTotalQuestions.setText("Total Questions " + FlashcardData.container.size());
     }
 
     /* Checking condition for start method. Method can only call randomFlashcard method once if
@@ -36,7 +38,7 @@ public class QueryController extends MainController {
             randomFlashcard(); // display Total questions
         }
         // Setting restart condition and resetting all values and call the randomFlashcard method
-        if (currentFlashcard == container.size()) {
+        if (currentFlashcard == FlashcardData.container.size()) {
             currentFlashcard = 0;
             storedScore = 0;
             queryTotalQuestions.setText("Total Questions 0");
@@ -47,32 +49,17 @@ public class QueryController extends MainController {
     }
 
     public void displayFlashcardName() {
-        if (currentFlashcard != container.size()) {
-            queryFlashContent.setText(soutFlashName());
+        if (currentFlashcard != FlashcardData.container.size()) {
+            queryFlashContent.setText(soutFlashName(currentFlashcard));
         }
     }
 
-    public String soutFlashName() {
-        String[] strArr = new String[2];
-        String str;
-
-        str = container.get(currentFlashcard).toString().replaceAll("\\[|\\]", "").trim();
-        strArr = str.split("_");
-        return strArr[0];
-    }
-
-    public String soutFlashContent() {
-        String flashCOntentTxt = "\n";
-        return flashCOntentTxt + container.get(currentFlashcard).toString()
-                .replaceAll("(^.)", "")
-                .replaceAll("(.*?_)", "").replaceAll("^.|(.$)", "").trim();
-    }
 
     public void displayCorrectAnswer() {
         if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
-            if (storedScore < container.size()) {
-                queryFlashContent.setText(soutFlashName() +
-                        "\n" + soutFlashContent());
+            if (storedScore < FlashcardData.container.size()) {
+                queryFlashContent.setText(soutFlashName(currentFlashcard) +
+                        "\n" + soutFlashContent(currentFlashcard));
             }
         }
     }
@@ -80,7 +67,7 @@ public class QueryController extends MainController {
     public void dontKnowAnswer() {
 
         if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
-            if (storedScore < container.size()) {
+            if (storedScore < FlashcardData.container.size()) {
                 currentFlashcard++;
                 displayFlashcardName();
 
@@ -90,7 +77,7 @@ public class QueryController extends MainController {
                 queryWroScore.setText("Wrong answer " + (intCurStore));
                 storedScore++;
             }
-            if (storedScore == container.size()) {
+            if (storedScore == FlashcardData.container.size()) {
                 queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
                         "main menu.");
             }
@@ -100,7 +87,7 @@ public class QueryController extends MainController {
     public void knowAnswer() {
 
         if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
-            if (storedScore < container.size()) {
+            if (storedScore < FlashcardData.container.size()) {
                 currentFlashcard++;
                 displayFlashcardName();
 
@@ -110,11 +97,15 @@ public class QueryController extends MainController {
                 queryCorrScore.setText("Correct answer " + (intCurStore));
                 storedScore++;
             }
-            if (storedScore == container.size()) {
+            if (storedScore == FlashcardData.container.size()) {
                 queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
                         "main menu.");
             }
         }
+    }
+    public void switchSceneMain(ActionEvent e) {
+        ControlScenes c = new ControlScenes();
+        c.switchSceneMain(e);
     }
 
 }

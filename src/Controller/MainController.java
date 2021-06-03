@@ -12,8 +12,6 @@ import java.util.*;
 
 public class MainController implements Initializable {
 
-    // Fields
-    public static ArrayList<Object> container = new ArrayList<>();
 
     @FXML
     ChoiceBox<String> choiceBox;
@@ -39,6 +37,7 @@ public class MainController implements Initializable {
         return choiceBArr;
     }
 
+    @FXML
     // Initializing and filling the choice box with content
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,16 +49,12 @@ public class MainController implements Initializable {
         }
     }
 
-
     // Saves value(current folder) in the static String in the Model
-    private void getFolderPath(ActionEvent e) {
+    public void getFolderPath(ActionEvent e) {
         CreateController cc = new CreateController();
         String str = choiceBox.getValue();
         FlashcardData.currentFolder = str.trim();
         cc.loadContainer();
     }
-
-
-
 }
 

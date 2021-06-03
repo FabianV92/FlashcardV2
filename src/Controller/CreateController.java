@@ -3,25 +3,28 @@ package Controller;
 import Model.FlashcardData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.util.ArrayList;
 
-public class CreateController extends MainController {
+public class CreateController extends ControlScenes {
     @FXML
     private TextArea flashContent;
     @FXML
     private TextField flashName;
 
+
+
     // Saves the container array into the data.dat of the chosen folder
-    private void saveToFile() {
+    public void saveToFile() {
         File f = new File("-" + FlashcardData.currentFolder + "/data.dat");
         try {
             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f));
             ObjectOutputStream os = new ObjectOutputStream(bos);
-            os.writeObject(container);
+            os.writeObject(FlashcardData.container);
 
             bos.flush();
             os.flush();
@@ -37,10 +40,10 @@ public class CreateController extends MainController {
         try {
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(f));
             ObjectInputStream ois = new ObjectInputStream(bis);
-            this.container = (ArrayList<Object>) ois.readObject();
+            FlashcardData.container = (ArrayList<Object>) ois.readObject();
             bis.close();
             ois.close();
-            container.forEach(System.out::println);
+            FlashcardData.container.forEach(System.out::println);
         } catch (FileNotFoundException e) {
             System.out.println("Not found the file");
         } catch (IOException | ClassNotFoundException e) {
@@ -59,7 +62,7 @@ public class CreateController extends MainController {
         l.add(flashcardContent);
 
         // Adding the arraylist to the container
-        container.add(l);
+        FlashcardData.container.add(l);
         saveToFile();
         forwardUser(e);
     }
@@ -67,13 +70,11 @@ public class CreateController extends MainController {
     // Forwarding the user to the user to the successful added flashcard page
     @FXML
     public void forwardUser(ActionEvent e) {
-        ControlScenes c = new ControlScenes();
-        c.switchSuccCreatePage(e);
+        switchSuccCreatePage(e);
     }
 
-    @FXML
+    @Override
     public void switchSceneMain(ActionEvent e) {
-        ControlScenes cs = new ControlScenes();
-        cs.switchSceneMain(e);
+        super.switchSceneMain(e);
     }
 }
