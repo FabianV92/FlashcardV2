@@ -21,7 +21,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
+        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v2.0" />
       <Button layoutX="274.0" layoutY="670.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#displayCorrectAnswer" prefHeight="50.0" prefWidth="250.0" styleClass="answerBtn" text="Show me the answer" textFill="#191e1e">
          <font>
             <Font size="18.0" />
