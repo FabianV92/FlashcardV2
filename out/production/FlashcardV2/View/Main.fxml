@@ -10,7 +10,7 @@
    <children>
       <Button layoutX="250.0" layoutY="487.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchEdit" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Edit Flashcards" />
       <Button fx:id="goToQuery" layoutX="250.0" layoutY="587.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchQueryCards" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Query of the flashcards" />
-      <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
+      <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v2.0" />
       <Label prefHeight="86.0" prefWidth="800.0" styleClass="header" text="Welcome to the FI20.1 Flashcard app" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />

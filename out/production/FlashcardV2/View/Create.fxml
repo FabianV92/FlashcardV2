@@ -17,7 +17,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
+        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v2.0" />
       <Button fx:id="flashCreate" layoutX="293.0" layoutY="618.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addFlashcard" prefHeight="50.0" prefWidth="150.0" styleClass="mainStyleBtns" text="Create" />
       <TextField fx:id="flashName" layoutX="3.0" layoutY="118.0" prefHeight="26.0" prefWidth="794.0">
          <font>

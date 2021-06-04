@@ -17,7 +17,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
+        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v2.0" />
       <ChoiceBox fx:id="chooseFsChoice" layoutX="3.0" layoutY="114.0" minHeight="-Infinity" prefHeight="60.0" prefWidth="794.0" styleClass="mainStyleBtns" />
       <Text fill="WHITE" layoutX="304.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose the flashcard">
          <font>
