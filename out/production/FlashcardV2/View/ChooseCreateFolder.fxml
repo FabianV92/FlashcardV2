@@ -38,6 +38,6 @@
       <Button layoutX="250.0" layoutY="524.0" mnemonicParsing="false" onAction="#createFolder" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Create" />
       <Button layoutX="250.0" layoutY="288.0" mnemonicParsing="false" onAction="#switchSceneMain" prefHeight="60.0" prefWidth="150.0" styleClass="mainStyleBtns" text="Confirm" />
       <Button layoutX="400.0" layoutY="288.0" mnemonicParsing="false" onAction="#deleteFolder" prefHeight="60.0" prefWidth="150.0" styleClass="mainStyleBtns" text="Delete" />
-      <Label layoutX="556.0" layoutY="288.0" prefHeight="60.0" prefWidth="150.0" text="Delete not working under windows..." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Label layoutX="556.0" layoutY="288.0" prefHeight="60.0" prefWidth="150.0" text="Delete is not working under windows..." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
     </children>
 </AnchorPane>
