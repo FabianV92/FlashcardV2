@@ -6,27 +6,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 
 public class EditController extends DisplayFlashcards implements Initializable {
 
-    private int currentFlashCard = 0;
-
+    private int currentFlashCard = -1;
     @FXML
     ChoiceBox<String> chooseFsChoice;
     @FXML
     TextArea textFieldContent;
     @FXML
     Button saveChanges;
-
     @FXML
+    TextArea textFieldName;
+
     public ArrayList<String> displayFlashNames() {
         String[] tmpArr;
         String tmpStr;
@@ -47,6 +46,7 @@ public class EditController extends DisplayFlashcards implements Initializable {
     }
 
     public void getAndDisplayCard(ActionEvent e) {
+        System.out.println("pressed");
         String currentFlashName = chooseFsChoice.getValue();
         String[] tmpArr;
         String tmpStr;
@@ -55,40 +55,54 @@ public class EditController extends DisplayFlashcards implements Initializable {
             tmpArr = tmpStr.split("_");
 
             if (tmpArr[0].equals(currentFlashName)) {
-                textFieldContent.setText(soutFlashName(i) + "\n" + soutFlashContent(i));
+                System.out.println("pressed again");
+                textFieldName.setText(soutFlashName(i));
+                textFieldContent.setText(soutFlashContent(i));
                 currentFlashCard = i;
             }
         }
     }
 
-    @FXML
     public void formatUpdateInput(ActionEvent e) {
-        CreateController cs = new CreateController();
-        ControlScenes cS = new ControlScenes();
-        String changedText = textFieldContent.getText().trim();
+        if (!textFieldContent.getText().trim().equals("Successful deleted.") ||
+                !(textFieldContent.getText().trim().equals("Successful updated."))) {
+            CreateController cs = new CreateController();
 
-        String flashName = changedText.replaceAll("[\r\n]+([^\n\r]*)", "").trim();
-        String flashContent = changedText.replaceFirst(flashName, "").trim();
+            //String flashName = changedText.trim().replaceAll("[\r\n]+([^\n\r]*)", "");
 
+            String flashContent = textFieldContent.getText();
+            String flashName = textFieldName.getText();
 
-        // Need to do this do add the [, ] because other method needs this characters
-        FlashcardData.container.set(currentFlashCard, "[" + flashName + "_, " + flashContent + "]");
-        cs.saveToFile();
+            // Need to do this do add the [, ] because other method needs this characters
+            try {
+                FlashcardData.container.set(currentFlashCard, "[" + flashName.trim() + "_, " + flashContent.trim() + "]");
+                cs.saveToFile();
+            } catch (IndexOutOfBoundsException exception) {
+                currentFlashCard = 0;
+            }
 
-        textFieldContent.setText("Successful updated");
-        currentFlashCard =0;
-
+            textFieldName.setText("");
+            textFieldContent.setText("Successful updated.");
+            currentFlashCard = -1;
+            chooseFsChoice.getItems().setAll(displayFlashNames());
+        }
     }
 
-
-    @FXML
     public void switchSceneMain(ActionEvent e) {
         ControlScenes cs = new ControlScenes();
         cs.switchSceneMain(e);
     }
 
-    public void switchCreateSuccess(ActionEvent e) {
-        ControlScenes cs = new ControlScenes();
-        cs.switchSuccCreatePage(e);
+    public void delete(ActionEvent e) {
+        if (currentFlashCard != -1) {
+            CreateController cc = new CreateController();
+            FlashcardData.container.remove(currentFlashCard);
+            textFieldName.setText("");
+            textFieldContent.setText("Successful deleted.");
+            currentFlashCard = -1;
+            chooseFsChoice.getItems().setAll(displayFlashNames());
+            cc.saveToFile();
+        }
     }
 }
+

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="FlashcardV2:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FlashcardV2_jar</output-path>
+    <root id="root">
+      <element id="archive" name="FlashcardV2.jar">
+        <element id="module-output" name="FlashcardV2" />
+      </element>
+      <element id="library" level="module" name="javafx-fxml" module-name="FlashcardV2" />
+    </root>
+  </artifact>
+</component>

@@ -18,14 +18,18 @@
             <Font name="System Bold" size="13.0" />
          </font></Button>
         <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
-      <ChoiceBox fx:id="chooseFsChoice" layoutX="4.0" layoutY="138.0" minHeight="-Infinity" prefHeight="60.0" prefWidth="794.0" styleClass="mainStyleBtns" />
-      <Text fill="WHITE" layoutX="304.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose the flashcard">
+      <ChoiceBox fx:id="chooseFsChoice" layoutX="3.0" layoutY="114.0" minHeight="-Infinity" prefHeight="60.0" prefWidth="794.0" styleClass="mainStyleBtns" />
+      <Text fill="WHITE" layoutX="304.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose the flashcard">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Button layoutX="45.0" layoutY="614.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="50.0" styleClass="mainStyleBtns" text="Delete Flashcard" />
+      <Button layoutX="45.0" layoutY="614.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#delete" prefHeight="50.0" styleClass="mainStyleBtns" text="Delete Flashcard" />
       <Button fx:id="saveChanges" layoutX="585.0" layoutY="614.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#formatUpdateInput" prefHeight="50.0" styleClass="mainStyleBtns" text="Save changes" />
-      <TextArea fx:id="textFieldContent" layoutX="2.0" layoutY="211.0" prefHeight="378.0" prefWidth="794.0">
+      <TextArea fx:id="textFieldContent" layoutX="2.0" layoutY="237.0" prefHeight="352.0" prefWidth="794.0">
+         <font>
+            <Font size="24.0" />
+         </font></TextArea>
+      <TextArea fx:id="textFieldName" layoutX="2.0" layoutY="180.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="794.0">
          <font>
             <Font size="24.0" />
          </font></TextArea>

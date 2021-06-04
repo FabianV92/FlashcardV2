@@ -43,7 +43,6 @@ public class CreateController extends ControlScenes {
             FlashcardData.container = (ArrayList<Object>) ois.readObject();
             bis.close();
             ois.close();
-            FlashcardData.container.forEach(System.out::println);
         } catch (FileNotFoundException e) {
             System.out.println("Not found the file");
         } catch (IOException | ClassNotFoundException e) {

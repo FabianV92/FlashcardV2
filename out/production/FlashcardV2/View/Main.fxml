@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -9,11 +8,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" styleClass="background" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControlScenes">
    <children>
-      <ChoiceBox fx:id="choiceBox" accessibleText="test" layoutX="250.0" layoutY="287.0" minHeight="-Infinity" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" />
-      <Text fill="WHITE" layoutX="297.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose specific flashcards">
-         <font>
-            <Font size="18.0" />
-         </font></Text>
       <Button layoutX="250.0" layoutY="487.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchEdit" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Edit Flashcards" />
       <Button fx:id="goToQuery" layoutX="250.0" layoutY="587.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchQueryCards" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Query of the flashcards" />
       <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v1.5" />
@@ -23,5 +17,12 @@
          </font>
       </Label>
       <Button fx:id="createFlash" layoutX="250.0" layoutY="387.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchCreate" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Create a new Flashcard" />
+      <Label layoutY="768.0" prefHeight="18.0" prefWidth="800.0" text="Creator :  Jens, Rabie, Tim, Fabian FI20.1" textFill="WHITE" />
+      <Button fx:id="ChooseCreateFolder" layoutX="250.0" layoutY="287.0" mnemonicParsing="false" onAction="#switchChooseCreateFolder" prefHeight="60.0" prefWidth="300.0" styleClass="mainStyleBtns" text="Choose/Create folder " />
+      <Label layoutX="566.0" layoutY="287.0" prefHeight="60.0" prefWidth="218.0" text="Important !! to run this app you need to choose a folder first !" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
