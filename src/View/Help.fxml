@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" styleClass="background" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControlScenes">
+    <children>
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="244.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to use this app?">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font></Text>
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchSceneMain" prefHeight="43.0" prefWidth="114.0" styleClass="homeBtn" text="Home" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+        <Text fill="WHITE" layoutX="721.0" layoutY="782.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version v2.0" />
+      <TextArea layoutY="117.0" prefHeight="602.0" prefWidth="800.0" text="1. Press the &quot;Choose/Create folder&quot; button&#10;    - Choose one of the existing folders and press the confirm button&#10;    - If no current folder exist, then type in the textfield the folder name you want to create&#10;    and press the &quot;Create&quot; button. Choose the folder you just created and pess the &quot;Confirm&quot;&#10;    button     &#10;&#10;2. Press the &quot;Create a new Flashcard&quot; button &#10;    - Type the name of your flashcard you want to create in the first upper textfield&#10;    - Type the content of your flashcard you want to create in the lower textfield and press&#10;    the &quot;Create&quot; button. &#10;    - After successful creating the flashcard you will be forwarded to the &quot;Successful created&#10;    the flashcard page&quot;. Press now on the &quot;Press here&quot; text or the &quot;home&quot; text.&#10;&#10;3.  Press the &quot;Query of the flashcards&quot; button&#10;    - Press the &quot;Press me to start&quot; button up in middle of the page&#10;    - Press one of the three buttons : &quot;I don't know the answer&quot;, &quot;Show me the answer&quot; and &#10;    &quot;I know the answer&quot;. &#10;    - Up in the right corner are the scores displayed the &quot;Total Questions&quot;,  &quot;Correct answere&quot;,&#10;    &quot;Wrint answere&quot;.&#10;    - After finishing the all flashcards press the &quot;Press me to start&quot; button to query again &#10;    the flashcards or press the &quot;home&quot; text up in the left corner to get back to the main menu.&#10;&#10;4. Press the &quot;Edit Flashcards&quot; button to update/edit the current existing flashcards of the&#10;    folder which has chosen in step Nr. 1. &#10;    - Choose the flashcard you want to edit from the choicebox menu.&#10;    - Change/edit the flashcard name or the flashcard content and press the &quot;Save changes&quot;&#10;    button.&#10;    - To delete a flashcard choose the flashcard from the choicebox menu and pess the button&#10;    &quot;Delete flashcard&quot;&#10;&#10;&#10;05.06.2021" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+    </children>
+</AnchorPane>

@@ -32,9 +32,9 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="queryFlashContent" layoutX="2.0" layoutY="144.0" prefHeight="502.0" prefWidth="794.0">
+      <TextArea fx:id="queryFlashContent" layoutX="1.0" layoutY="181.0" prefHeight="466.0" prefWidth="800.0" promptText="Flashcard content">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font></TextArea>
       <Button fx:id="startBtn" layoutX="315.0" layoutY="96.0" mnemonicParsing="false" onAction="#startMethod" prefHeight="26.0" prefWidth="168.0" styleClass="startBtn" text="Press me to start ! !" textFill="#191e1e">
          <font>
@@ -56,5 +56,10 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <TextArea fx:id="queryFlahName" layoutX="1.0" layoutY="135.0" minHeight="-Infinity" prefHeight="40.0" prefWidth="800.0" promptText="Flashcard name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
     </children>
 </AnchorPane>

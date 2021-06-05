@@ -54,7 +54,17 @@
 }
 /*------------------ChooseFOlder-----------------*/
 .helpBtn {
-    -fx-background-color: transparent;
+    -fx-background-color:
+            #607291,
+            linear-gradient(#6b80a4 0%, #3e5577 20%, #375074 100%),
+            linear-gradient(#5570a2 0%, #5790d2 5%, #455479 50%, #486a9a 51%, #4a6c9b 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 7 30 7 30;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
 }
 .helpBtn:pressed {
     -fx-background-color: transparent;

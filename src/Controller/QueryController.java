@@ -21,6 +21,9 @@ public class QueryController extends DisplayFlashcards {
     Label queryWroScore;
 
     @FXML
+    TextArea queryFlahName;
+
+    @FXML
     public void randomFlashcard() {
         displayTotalQuestions();
         displayFlashcardName();
@@ -37,6 +40,9 @@ public class QueryController extends DisplayFlashcards {
         if (queryTotalQuestions.getText().equals("Total Questions 0")) {
             randomFlashcard(); // display Total questions
         }
+        if (FlashcardData.container.size() == 0) {
+            queryFlashContent.setText("No flashcards are available or no folder has been chosen");
+        }
         // Setting restart condition and resetting all values and call the randomFlashcard method
         if (currentFlashcard == FlashcardData.container.size()) {
             currentFlashcard = 0;
@@ -44,13 +50,14 @@ public class QueryController extends DisplayFlashcards {
             queryTotalQuestions.setText("Total Questions 0");
             queryWroScore.setText("Wrong answer 0");
             queryCorrScore.setText("Correct answer 0");
+            queryFlashContent.setText("");
             randomFlashcard();
         }
     }
 
     public void displayFlashcardName() {
         if (currentFlashcard != FlashcardData.container.size()) {
-            queryFlashContent.setText(soutFlashName(currentFlashcard));
+            queryFlahName.setText(soutFlashName(currentFlashcard));
         }
     }
 
@@ -58,8 +65,8 @@ public class QueryController extends DisplayFlashcards {
     public void displayCorrectAnswer() {
         if (!queryTotalQuestions.getText().equals("Total Questions 0")) {
             if (storedScore < FlashcardData.container.size()) {
-                queryFlashContent.setText(soutFlashName(currentFlashcard) +
-                        "\n" + soutFlashContent(currentFlashcard));
+                queryFlahName.setText(soutFlashName(currentFlashcard));
+                queryFlashContent.setText(soutFlashContent(currentFlashcard));
             }
         }
     }
@@ -76,8 +83,10 @@ public class QueryController extends DisplayFlashcards {
                 intCurStore++;
                 queryWroScore.setText("Wrong answer " + (intCurStore));
                 storedScore++;
+                queryFlashContent.setText("");
             }
             if (storedScore == FlashcardData.container.size()) {
+                queryFlahName.setText("");
                 queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
                         "main menu.");
             }
@@ -96,8 +105,10 @@ public class QueryController extends DisplayFlashcards {
                 intCurStore++;
                 queryCorrScore.setText("Correct answer " + (intCurStore));
                 storedScore++;
+                queryFlashContent.setText("");
             }
             if (storedScore == FlashcardData.container.size()) {
+                queryFlahName.setText("");
                 queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
                         "main menu.");
             }

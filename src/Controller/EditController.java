@@ -64,6 +64,7 @@ public class EditController extends DisplayFlashcards implements Initializable {
     }
 
     public void formatUpdateInput(ActionEvent e) {
+        boolean notTheSameName = true;
         if (!textFieldContent.getText().trim().equals("Successful deleted.") ||
                 !(textFieldContent.getText().trim().equals("Successful updated."))) {
             CreateController cs = new CreateController();
@@ -73,6 +74,18 @@ public class EditController extends DisplayFlashcards implements Initializable {
             String flashContent = textFieldContent.getText();
             String flashName = textFieldName.getText();
 
+            String[] strTmp;
+            for (int i = 0; i < FlashcardData.container.size(); i ++) {
+                String tmp = FlashcardData.container.get(i).toString();
+                strTmp = tmp.split("_");
+
+                if (strTmp[0].replaceAll("\\[","").equals(textFieldName.getText())){
+                    System.out.println("equald");
+                    notTheSameName = false;
+                }
+            }
+
+            if (notTheSameName && !textFieldName.getText().equals("Flash name already exists!")) {
             // Need to do this do add the [, ] because other method needs this characters
             try {
                 FlashcardData.container.set(currentFlashCard, "[" + flashName.trim() + "_, " + flashContent.trim() + "]");
@@ -85,6 +98,9 @@ public class EditController extends DisplayFlashcards implements Initializable {
             textFieldContent.setText("Successful updated.");
             currentFlashCard = -1;
             chooseFsChoice.getItems().setAll(displayFlashNames());
+            }
+            else textFieldName.setText("Flash name already exists!");
+            notTheSameName = true;
         }
     }
 

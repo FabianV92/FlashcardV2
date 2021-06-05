@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class ControlScenes {
@@ -100,9 +101,27 @@ public class ControlScenes {
             ioException.printStackTrace();
         }
     }
+
     public void switchChooseCreateFolder(ActionEvent e) {
         try {
             root = FXMLLoader.load(getClass().getResource("/View/ChooseCreateFolder.fxml"));
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+
+            // Adding css
+            String css = this.getClass().getResource("/style.css").toExternalForm();
+            scene.getStylesheets().add(css);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    public void switchToHelp(ActionEvent e) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/Help.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
 
