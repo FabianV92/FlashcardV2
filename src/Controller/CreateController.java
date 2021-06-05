@@ -17,7 +17,6 @@ public class CreateController extends ControlScenes {
     private TextField flashName;
 
 
-
     // Saves the container array into the data.dat of the chosen folder
     public void saveToFile() {
         File f = new File("-" + FlashcardData.currentFolder + "/data.dat");
@@ -52,18 +51,33 @@ public class CreateController extends ControlScenes {
 
     // Creating array which contains data
     public void addFlashcard(ActionEvent e) {
-        System.out.println("working");
 
+        boolean notTheSameName = true;
         String flashcardName = flashName.getText();
         String flashcardContent = flashContent.getText();
-        ArrayList<String> l = new ArrayList<>();
-        l.add(flashcardName + "_");
-        l.add(flashcardContent);
 
-        // Adding the arraylist to the container
-        FlashcardData.container.add(l);
-        saveToFile();
-        forwardUser(e);
+        // Safety loop to check if flahName already exists in the container or not
+        for (int i = 0; i < FlashcardData.container.size(); i++) {
+            String tmp = FlashcardData.container.get(i).toString().replaceAll("\\[", "");
+            String[] tmpArr = tmp.split("_");
+            if (tmpArr[0].equals(flashName.getText())) {
+                notTheSameName = false;
+            }
+        }
+
+        if (notTheSameName && !flashName.getText().equals("Flash card name already exist!")) {
+            ArrayList<String> l = new ArrayList<>();
+            l.add(flashcardName + "_");
+            l.add(flashcardContent);
+
+            // Adding the arraylist to the container
+            FlashcardData.container.add(l);
+            saveToFile();
+            forwardUser(e);
+        } else {
+            flashName.setText("Flash card name already exist!");
+            notTheSameName = true;
+        }
     }
 
     // Forwarding the user to the user to the successful added flashcard page
