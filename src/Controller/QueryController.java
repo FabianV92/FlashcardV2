@@ -88,7 +88,7 @@ public class QueryController extends DisplayFlashcards {
             if (storedScore == FlashcardData.container.size()) {
                 queryFlahName.setText("");
                 queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
-                        "main menu.");
+                        "main menu or press the \"Press me to start\"\nbutton to start over again.");
             }
         }
     }
@@ -110,7 +110,7 @@ public class QueryController extends DisplayFlashcards {
             if (storedScore == FlashcardData.container.size()) {
                 queryFlahName.setText("");
                 queryFlashContent.setText("You finished all flashcards :) \nPRESS the Home button to come back to the " +
-                        "main menu.");
+                        "main menu or press the \"Press me to start\"\nbutton to start over again.");
             }
         }
     }
