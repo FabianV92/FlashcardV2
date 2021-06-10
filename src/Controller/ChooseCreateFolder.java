@@ -37,6 +37,7 @@ public class ChooseCreateFolder extends ControlScenes implements Initializable {
      * @return returns a String array which folder names of the flashcards.
      */
     public String[] displayFolders() {
+
         File f = new File(".\\");
         String strArrContainer[];
         String str = "";

@@ -46,7 +46,6 @@ public class EditController extends DisplayFlashcards implements Initializable {
     }
 
     public void getAndDisplayCard(ActionEvent e) {
-        System.out.println("pressed");
         String currentFlashName = chooseFsChoice.getValue();
         String[] tmpArr;
         String tmpStr;
@@ -55,7 +54,6 @@ public class EditController extends DisplayFlashcards implements Initializable {
             tmpArr = tmpStr.split("_");
 
             if (tmpArr[0].equals(currentFlashName)) {
-                System.out.println("pressed again");
                 textFieldName.setText(soutFlashName(i));
                 textFieldContent.setText(soutFlashContent(i));
                 currentFlashCard = i;
@@ -69,37 +67,40 @@ public class EditController extends DisplayFlashcards implements Initializable {
                 !(textFieldContent.getText().trim().equals("Successful updated."))) {
             CreateController cs = new CreateController();
 
-            //String flashName = changedText.trim().replaceAll("[\r\n]+([^\n\r]*)", "");
-
             String flashContent = textFieldContent.getText();
             String flashName = textFieldName.getText();
 
             String[] strTmp;
-            for (int i = 0; i < FlashcardData.container.size(); i ++) {
+
+
+            // Making sure cant change the flashcard name to an already existing flashcard name
+            for (int i = 0; i < FlashcardData.container.size(); i++) {
                 String tmp = FlashcardData.container.get(i).toString();
                 strTmp = tmp.split("_");
 
-                if (strTmp[0].replaceAll("\\[","").equals(textFieldName.getText())){
-                    System.out.println("equald");
+                if (i == currentFlashCard) {
+                    continue;
+                } else
+                    if (strTmp[0].replaceAll("\\[", "").equals(textFieldName.getText())) {
                     notTheSameName = false;
                 }
             }
 
-            if (notTheSameName && !textFieldName.getText().equals("Flash name already exists!")) {
-            // Need to do this do add the [, ] because other method needs this characters
-            try {
-                FlashcardData.container.set(currentFlashCard, "[" + flashName.trim() + "_, " + flashContent.trim() + "]");
-                cs.saveToFile();
-            } catch (IndexOutOfBoundsException exception) {
-                currentFlashCard = 0;
-            }
 
-            textFieldName.setText("");
-            textFieldContent.setText("Successful updated.");
-            currentFlashCard = -1;
-            chooseFsChoice.getItems().setAll(displayFlashNames());
-            }
-            else textFieldName.setText("Flash name already exists!");
+            if (notTheSameName && !textFieldName.getText().equals("Flash name already exists!")) {
+                // Need to do this do add the [, ] because other method needs this characters
+                try {
+                    FlashcardData.container.set(currentFlashCard, "[" + flashName.trim() + "_, " + flashContent.trim() + "]");
+                    cs.saveToFile();
+                } catch (IndexOutOfBoundsException exception) {
+                    currentFlashCard = 0;
+                }
+
+                textFieldName.setText("");
+                textFieldContent.setText("Successful updated.");
+                currentFlashCard = -1;
+                chooseFsChoice.getItems().setAll(displayFlashNames());
+            } else textFieldName.setText("Flash name already exists!");
             notTheSameName = true;
         }
     }
